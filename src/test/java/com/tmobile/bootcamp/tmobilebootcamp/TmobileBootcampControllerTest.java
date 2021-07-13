@@ -48,4 +48,33 @@ public class TmobileBootcampControllerTest {
 
     }
 
+
+    @Test
+    public void addTenNullTest() throws Exception {
+
+        Result sum = new Result(15L);
+        when(tmobileBootcampController.addTen(5L)).thenReturn(sum);
+        Long num = null;
+
+        Result calc = tmobileBootcampController.addTen(num);
+        Assert.assertNull("Input number is null", num);
+
+    }
+
+
+
+    @Test
+    public void sumNumbersNullTest() throws Exception {
+
+        Result sum = new Result(10L);
+        when(tmobileBootcampController.sumNumbers(3L, 7L)).thenReturn(sum);
+
+        Long num1 = null;
+        Long num2 = null;
+        Result calc = tmobileBootcampController.sumNumbers(num1, num2);
+
+        Assert.assertNull("Input number is null", num1);
+        Assert.assertNull("Input number is null", num2);
+    }
+
 }
